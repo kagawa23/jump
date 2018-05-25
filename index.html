@@ -63,11 +63,12 @@
 	<script src="js/game.js"></script>
   <script src="js/main.js"></script>  
     <script>
-        if (typeof(webExtensionWallet) === "undefined") {
           var el = document.querySelector('.installation');
           var androidEl = document.querySelector('.android');
           var iosEl = document.querySelector('.ios');
           var desktopEl = document.querySelector('.desktop');
+        el.style.display = 'none';
+        if (typeof(webExtensionWallet) === "undefined") {
           el.style.display = 'flex';
           el.style.color = 'white';
           var u = navigator.userAgent;
