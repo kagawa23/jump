@@ -4,8 +4,16 @@ body{
   -webkit-user-select: none;
   -moz-user-select: none; 
 }
-.mask{
+.btton-container {
 	display: flex;
+	width: 70%;
+	justify-content: space-between;
+}
+.desktop,.android,.ios {
+	display: none;
+}
+.installation,.mask{
+	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -26,6 +34,12 @@ body{
 	border: 5px solid rgba(255,255,255,0.05);
 
 }
+.max-score {
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 20px;
+	visibility: hidden;
+}
 .score-container{
 	color: #ffffff;
 	text-align: center;
@@ -39,9 +53,10 @@ body{
 	font-size: 100px;
 	font-weight: bold;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 button.restart, .upload{
-	width: 200px;
+	width: 150px;
 	height: 40px;
 	border-radius: 20px;
 	background: white;
@@ -50,7 +65,7 @@ button.restart, .upload{
   font-size: 20px;
   cursor: pointer;
 }
-button.restart:hover{
+button.restart,.upload:hover{
 	color:#232323;
 }
 .info{

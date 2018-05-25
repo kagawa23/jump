@@ -5,34 +5,78 @@
 	<title>Jump</title>
 	<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
 	<link rel="shortcut icon" href="../img/favicon.ico">
-	<link rel="stylesheet" href="css/jump.css">
+  <link rel="stylesheet" href="css/jump.css">
 </head>
 <body>
+  <div class="installation">
+      <div class="content">	
+          您的浏览器不支持星云dapp!
+        <div class="desktop">
+            <p>请先安装<a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a></p>
+        </div>
+        <div class="android">
+            <p>请先安装<a target="_blank" href="https://nano.nebulas.io/index_cn.html">NAS Nano Android版本</a></p>
+        </div>
+        <div class="ios">
+            <p>请先安装<a target="_blank" href="https://itunes.apple.com/hk/app/nas-nano/id1281191905?l=zh&ls=1&mt=8">NAS Nano ios版本</a>（请使用中国大陆以外市场下载）</p>
+        </div>
+      </div>
+    </div>
   <div class="mask">
     <div class="content">	
       <div class="score-container">
 	    	<p class="title">本次得分</p>
 	    	<p class="score">0</h1>
       </div>
+      <div class="max-score">
+        <p>当前最高分</p>
+        <div>
+          <span id="maxAddress"></span>
+          <span id="maxScore"></span>
+      </div>
+      </div>
+      <div class="btton-container">
       <button class="upload">
 	  		上传得分
 	  	</button>
 	  	<button class="restart">
 	  		重新开始
-	  	</button>
+      </button>
+      </div>
     </div>
   </div>
   <div class="info">
-    <a class="title" href="https://github.com/luosijie/threejs-examples" target="_blank">
-      Jump
+    <a class="title" href="#" target="_blank">
+      星云跳一跳
     </h3>
     <div class="score-gaming">	
       得分：<span class="score-current">0</span>
     </div>
   </div>
-  <script src="js/nebPay.js"></script>
+  <script src="js/nebPay.js">
+  </script>
+  <script>
+    NebPay = require('nebpay');
+    dappAddress = "n1yuxvUJupn3dueFKPWex8UPnZV6vDmGeQB"
+  </script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.min.js"></script>
 	<script src="js/game.js"></script>
-  <script src="js/main.js"></script>    
+  <script src="js/main.js"></script>  
+    <script>
+        if (typeof(webExtensionWallet) === "undefined") {
+          var el = document.querySelector('.installation');
+          var androidEl = document.querySelector('.android');
+          var iosEl = document.querySelector('.ios');
+          var desktopEl = document.querySelector('.desktop');
+          el.style.display = 'flex';
+          el.style.color = 'white';
+          var u = navigator.userAgent;
+          var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+          var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+          if(isAndroid) androidEl.style.display = "block";
+            else if(isiOS) iosEl.style.display = "block";
+            else desktopEl.style.display = "block";
+        }
+    </script>   
 </body>
 </html>
