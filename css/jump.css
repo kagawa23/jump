@@ -5,7 +5,7 @@ body{
   -moz-user-select: none; 
 }
 .mask{
-	display: none;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -40,7 +40,7 @@ body{
 	font-weight: bold;
 	margin-top: 20px;
 }
-button.restart{
+button.restart, .upload{
 	width: 200px;
 	height: 40px;
 	border-radius: 20px;
